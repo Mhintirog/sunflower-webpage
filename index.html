@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Το Ροζ Τριαντάφυλλο | Γιορτή της Μητέρας</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Cormorant+Garamond:wght@400;500;600&display=swap');
+        
+        :root {
+            --primary: #4a90e2; /* Blue */
+            --secondary: #d496a7; /* Pink */
+            --accent: #3178c6; /* Darker Blue */
+            --background: #f9f9f9;
+            --light-bg: #f0f6ff; /* Light Blue */
+            --text: #2d2d2d;
+            --light-text: #666666;
+            --white: #ffffff;
+            --border: #e5e5e5;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: var(--primary);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--white);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--white);
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+        
+        .nav-links a:hover {
+            color: #e0f0ff;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 450px;
+            background-color: var(--primary);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 60px;
+            overflow: hidden;
+        }
+        
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.4);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: var(--white);
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 48px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .hero-subtitle {
+            font-size: 18px;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+            margin-bottom: 30px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .hero-button {
+            background-color: var(--secondary);
+            color: var(--white);
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .hero-button:hover {
+            background-color: #c27a8b;
+        }
+        
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+        
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-title {
+                font-size: 36px;
+            }
+            
+            .hero {
+                height: 380px;
+            }
+        }
+        
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .content-box {
+            margin-bottom: 30px;
+        }
+        
+        .content-box p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        
+        .image-feature {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            height: 100%;
+        }
+        
+        .image-feature img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .quote-box {
+            background-color: var(--light-bg);
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary);
+            margin: 30px 0;
+        }
+        
+        .quote-content {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 20px;
+            color: var(--accent);
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .list-section {
+            margin: 20px 0;
+        }
+        
+        .list-section h3 {
+            font-size: 20px;
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        ul, ol {
+            padding-left: 25px;
+            margin-bottom: 20px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+        }
+        
+        strong {
+            color: var(--accent);
+            font-weight: 500;
+        }
+        
+        .info-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            border-top: 4px solid var(--primary);
+        }
+        
+        .info-card h3 {
+            font-size: 22px;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .signature {
+            font-family: 'Cormorant Garamond', serif;
+            text-align: right;
+            font-style: italic;
+            margin-top: 30px;
+            color: var(--secondary);
+            font-size: 20px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            padding: 50px 0;
+            color: var(--white);
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .footer-column h4 {
+            font-size: 18px;
+            color: #e0f0ff;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        
+        .footer-column p {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: rgba(255,255,255,0.8);
+            font-size: 18px;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .social-links a:hover {
+            color: var(--white);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 30px;
+            color: rgba(255,255,255,0.6);
+            font-size: 14px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--white);
+        }
+        
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .cta-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .cta-text {
+            margin-bottom: 30px;
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        .blue-balloon-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+            color: var(--white);
+            background-color: var(--primary);
+            display: inline-flex;
+            align-items: center;
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin-top: 10px;
+        }
+        
+        .blue-balloon-logo::before {
+            content: "🎈";
+            margin-right: 8px;
+            font-size: 22px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">Ροζ Τριαντάφυλλο</a>
+            <ul class="nav-links">
+                <li><a href="#about">Σχετικά</a></li>
+                <li><a href="#symbolism">Συμβολισμός</a></li>
+                <li><a href="#care">Φροντίδα</a></li>
+                <li><a href="#message">Μήνυμα</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="mothers-day-banner.jpg" alt="Γιορτή της Μητέρας" class="hero-image">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Για τη Γιορτή της Μητέρας</h1>
+            <p class="hero-subtitle">Μια ξεχωριστή αφιέρωση στην πιο σημαντική γυναίκα στη ζωή μας</p>
+            <a href="#message" class="hero-button">Διάβασε το Μήνυμα</a>
+        </div>
+    </section>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <div class="content-grid">
+            <div class="content-box" id="about">
+                <h2 class="section-title">Το Λουλούδι της Αγάπης</h2>
+                <p>Αγαπημένη μαμά, αυτά τα ροζ τριαντάφυλλα είναι για σένα. Είναι πανέμορφα λουλούδια που συμβολίζουν την αγάπη και τη στοργή που μου δίνεις κάθε μέρα. Με το γλυκό τους άρωμα και τα βελούδινα πέταλα, είναι το τέλειο δώρο για να σου πω πόσο σημαντική είσαι για εμένα.</p>
+                
+                <div class="list-section">
+                    <h3>Πώς μοιάζουν τα Ροζ Τριαντάφυλλα;</h3>
+                    <p>Τα ροζ τριαντάφυλλα που κρατάς στα χέρια σου έχουν ξεχωριστά χαρακτηριστικά, όπως κι εσύ:</p>
+                    <ul>
+                        <li><strong>Πέταλα:</strong> Απαλά και βελούδινα, όπως η αγάπη και η τρυφερότητά σου</li>
+                        <li><strong>Μίσχος:</strong> Δυνατός και μακρύς, που στηρίζει το λουλούδι όπως εσύ στηρίζεις την οικογένειά μας</li>
+                        <li><strong>Φύλλα:</strong> Πράσινα και γυαλιστερά, που προστατεύουν το λουλούδι όπως εσύ με προστατεύεις</li>
+                        <li><strong>Άρωμα:</strong> Γλυκό και ευχάριστο, που μου θυμίζει τις αγκαλιές και τα φιλιά σου</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="image-feature">
+                <img src="pink-roses.jpg" alt="Ροζ Τριαντάφυλλα">
+            </div>
+        </div>
+        
+        <!-- Symbolism Section -->
+        <div class="info-card" id="symbolism">
+            <h3>Τι συμβολίζει το Ροζ Τριαντάφυλλο;</h3>
+            <p>Μαμά, επέλεξα αυτά τα ροζ τριαντάφυλλα ειδικά για σένα, επειδή το ροζ χρώμα έχει βαθύ συμβολισμό:</p>
+            <ul>
+                <li><strong>Αγάπη:</strong> Το ροζ συμβολίζει την τρυφερή, άνευ όρων αγάπη - ακριβώς όπως η δική σου για εμένα</li>
+                <li><strong>Ευγνωμοσύνη:</strong> Εκφράζει το "ευχαριστώ" για όλα όσα κάνεις κάθε μέρα</li>
+                <li><strong>Θαυμασμό:</strong> Δείχνει πόσο σε θαυμάζω</li>
+                <li><strong>Τρυφερότητα:</strong> Μου θυμίζει τη ζεστασιά και την τρυφερότητα που μου δίνεις απλόχερα</li>
+                <li><strong>Χαρά:</strong> Συμβολίζει τη χαρά που φέρνεις στη ζωή μου κάθε μέρα</li>
+            </ul>
+            <p>Τα ροζ τριαντάφυλλα λένε "σ' αγαπώ" με τον πιο όμορφο και τρυφερό τρόπο, όπως ακριβώς κι εγώ θέλω να σου πω πόσο σημαντική είσαι.</p>
+        </div>
+        
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="cta-container">
+                <h2 class="cta-title">Χρόνια Πολλά για τη Γιορτή της Μητέρας!</h2>
+                <p class="cta-text">Κάθε τριαντάφυλλο είναι μοναδικό και ξεχωριστό, όπως ακριβώς και η δική μου μαμά.</p>
+            </div>
+        </section>
+        
+        <div class="content-grid">
+            <div class="image-feature">
+                <img src="mother-child.jpg" alt="Μητέρα με παιδί">
+            </div>
+            
+            <div class="content-box" id="care">
+                <h2 class="section-title">Φροντίδα των Ροζ Τριαντάφυλλων</h2>
+                <p>Μαμά, όπως εσύ φροντίζεις εμένα με αγάπη, έτσι κι εγώ σου δίνω μερικές συμβουλές για να φροντίσεις τα τριαντάφυλλά σου:</p>
+                
+                <ol>
+                    <li><strong>Νερό:</strong> Πότισέ τα τακτικά αλλά όχι υπερβολικά - μια φορά κάθε 2-3 μέρες είναι αρκετή</li>
+                    <li><strong>Ήλιος:</strong> Βάλε τα σε μέρος με αρκετό φως, αλλά όχι σε πολύ έντονο ήλιο</li>
+                    <li><strong>Αέρας:</strong> Απόφυγε τα μέρη με πολύ αέρα που μπορεί να τα καταστρέψουν</li>
+                    <li><strong>Αγάπη:</strong> Δώσε τους λίγη από την αγάπη που δίνεις σε όλους μας κάθε μέρα</li>
+                </ol>
+                
+                <p>Τα τριαντάφυλλα, όπως και η αγάπη μιας μητέρας, μπορούν να ανθίσουν για πολύ καιρό με την κατάλληλη φροντίδα.</p>
+            </div>
+        </div>
+        
+        <!-- Message Section -->
+        <div class="quote-box" id="message">
+            <p class="quote-content">
+                "Μαμά, σου χαρίζω αυτά τα ροζ τριαντάφυλλα,<br>
+                γιατί είναι όμορφα και γλυκά σαν εσένα.<br>
+                Τα πέταλά τους είναι απαλά σαν τις αγκαλιές σου,<br>
+                και το άρωμά τους γλυκό σαν την αγάπη σου.<br>
+                Σ' αγαπώ πολύ, Μαμά."
+            </p>
+            <div class="signature">
+                Με όλη μου την αγάπη,<br>
+                Το παιδί σου
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>Γιορτή της Μητέρας</h4>
+                <p>Μια ιδιαίτερη ημέρα αφιερωμένη σε όλες τις μητέρες του κόσμου, για να τιμήσουμε την αγάπη και τη φροντίδα τους.</p>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2025 Μπλε μπαλόνι. Με αγάπη για όλες τις μαμάδες.</p>
+        </div>
+    </footer>
+</body>
+</html>
